@@ -1,5 +1,5 @@
 import { app, BrowserWindow } from 'electron'
-import { WindowStateKeeper } from './lib/window_state_keeper'
+import { WindowStateKeeper } from '@lib/window_state_keeper'
 
 // Handle creating/removing shortcuts on Windows when installing/uninstalling.
 if (require('electron-squirrel-startup')) { // eslint-disable-line global-require

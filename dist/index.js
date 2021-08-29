@@ -48,7 +48,7 @@ var __rest = (this && this.__rest) || function (s, e) {
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 var electron_1 = require("electron");
-var window_state_keeper_1 = require("./lib/window_state_keeper");
+var window_state_keeper_1 = require("@lib/window_state_keeper");
 // Handle creating/removing shortcuts on Windows when installing/uninstalling.
 if (require('electron-squirrel-startup')) { // eslint-disable-line global-require
     electron_1.app.quit();

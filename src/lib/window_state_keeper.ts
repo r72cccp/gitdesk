@@ -1,6 +1,5 @@
-import { screen } from 'electron'
+import { BrowserWindow, screen } from 'electron'
 import settings from 'electron-settings'
-import { BrowserWindow } from 'electron/main'
 import { WindowState } from './types'
 
 export class WindowStateKeeper {
@@ -16,7 +15,7 @@ export class WindowStateKeeper {
     return `WindowStateKeeper.windowState.${this.windowName}`
   }
 
-  public restoreWindowPosition = async () => {
+  public restoreWindowPosition = async (): Promise<void> => {
     if (await settings.has(this.settingsName)) {
       this.windowState = await settings.get(this.settingsName) as WindowState
       return
@@ -40,7 +39,7 @@ export class WindowStateKeeper {
     await settings.set(this.settingsName, this.windowState)
   }
 
-  public track = async (win: BrowserWindow) => {
+  public track = async (win: BrowserWindow): Promise<void> => {
     this.browserWindow = win
     const saveState = this.saveState.bind(this)
     this.browserWindow.on('resize', saveState)
